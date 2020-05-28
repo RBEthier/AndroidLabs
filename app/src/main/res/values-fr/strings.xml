@@ -2,6 +2,14 @@
 
 <resources>
     <string name="app_name">Labo d\'Android</string>
-    <string name="hello_message">Bonjour!</string>
-    <string name="ButtonText">Je suis un bouton</string>
+    <string name="hello_message">Regardez Ma GUI</string>
+    <string name="ButtonText">CLIQUEZ ICI</string>
+    <string name="undo">Annulez</string>
+    <string name="swch">L\interrupteur est </string>
+    <string name="on">allume</string>
+    <string name="off">eteint</string>
+    <string name="check">Voice plus d\'informations</string>
+    <string name="box"> Checkez ceci!</string>
+    <string name="setsw">L\interrupteur allume/eteint</string>
+    <string name="type">Ecrivez ici</string>
 </resources>
