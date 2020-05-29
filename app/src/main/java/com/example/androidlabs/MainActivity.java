@@ -39,8 +39,9 @@ public class MainActivity extends AppCompatActivity {
         final Switch s = (Switch) findViewById(R.id.switch1);
 
         if (s.isChecked()) {
-            Snackbar mySnackbar = Snackbar.make(findViewById(R.id.switch1), getResources().getString(R.string.swch) + " " + getResources().getString(R.string.on), Snackbar.LENGTH_LONG);
+            final Snackbar mySnackbar = Snackbar.make(findViewById(R.id.switch1), getResources().getString(R.string.swch) + " " + getResources().getString(R.string.on), Snackbar.LENGTH_LONG);
             mySnackbar.setAction(R.string.undo, new MyUndoListener());
+        //    mySnackbar.setAction("undo", v -> s.setChecked(false));
             mySnackbar.show();
 
         } else {
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             mySnackbar.setAction(R.string.undo, new MyUndoListener());
             mySnackbar.show();
         }
+
 
     }
 }
