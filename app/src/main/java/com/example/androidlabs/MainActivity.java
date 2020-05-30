@@ -41,12 +41,12 @@ public class MainActivity extends AppCompatActivity {
         if (s.isChecked()) {
             final Snackbar mySnackbar = Snackbar.make(findViewById(R.id.switch1), getResources().getString(R.string.swch) + " " + getResources().getString(R.string.on), Snackbar.LENGTH_LONG);
             mySnackbar.setAction(R.string.undo, new MyUndoListener());
-        //    mySnackbar.setAction("undo", v -> s.setChecked(false));
+            mySnackbar.setAction("undo", v -> s.setChecked(false));
             mySnackbar.show();
 
         } else {
             Snackbar mySnackbar = Snackbar.make(findViewById(R.id.switch1), getResources().getString(R.string.swch) + " " + getResources().getString(R.string.off), Snackbar.LENGTH_SHORT);
-            mySnackbar.setAction(R.string.undo, new MyUndoListener());
+         //   mySnackbar.setAction(R.string.undo, new MyUndoListener());
             mySnackbar.show();
         }
 
