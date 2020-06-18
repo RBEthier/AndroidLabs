@@ -6,9 +6,18 @@
     <string name="swch">The Switch is now </string>
     <string name="on">on</string>
     <string name="off">off</string>
-    <string name="check">Here is more information></string>
+    <string name="check">Here is more information</string>
     <string name="box"> Check this out!</string>
     <string name="setsw">Switch on/off</string>
     <string name="type">Type here</string>
-
+    <string name="login">Login</string>
+    <string name="email">Enter your email address</string>
+    <string name="password">Type your password</string>
+    <string name="disName">Your name: </string>
+    <string name="disEmail">Your email: </string>
+    <string name="profile"> Your Profile </string>
+    <string name="reqName"> Enter your name</string>
+    <string name="reqEmail"> Enter your Email</string>
+    <string name="pic">Your picture: </string>
+    <string name="picbutton"> Click the button above to take a picture</string>
 </resources>

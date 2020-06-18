@@ -12,4 +12,14 @@
     <string name="box"> Checkez ceci!</string>
     <string name="setsw">L\interrupteur allume/eteint</string>
     <string name="type">Ecrivez ici</string>
+    <string name="login">Se connecter</string>
+    <string name="email">Veuillez entrer votre couriel SVP</string>
+    <string name="password">Ecrivez votre mot de passe</string>
+    <string name="disName">Votre nom: </string>
+    <string name="disEmail">Votre courriel: </string>
+    <string name="profile"> Votre Profile </string>
+    <string name="reqName"> Enter your name</string>
+    <string name="reqEmail"> Enter your Email</string>
+    <string name="pic">Votre image: </string>
+    <string name="picbutton"> Cliquez sur le bouton ci-dessus pour prendre une photo</string>
 </resources>

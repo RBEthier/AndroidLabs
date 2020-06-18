@@ -1,55 +1,143 @@
 package com.example.androidlabs;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.TwoStatePreference;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.BreakIterator;
+
 public class MainActivity extends AppCompatActivity {
 
-    CheckBox text;
+
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String EMAIL = "email";
+    public static final String password = "pass";
+    public String email;
+    public static final String ACTIVITY_NAME = "MAIN_ACTIVITY";
+    private Button obutton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.lab3layout);
+
+        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+  //      editor.commit();
+    //    Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show();
+
+        email = prefs.getString(EMAIL, "");
+        EditText emailText = findViewById(R.id.textView);
+        emailText.setText(email);
+
+        Button oButton = findViewById(R.id.obutton);
+        oButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onLoginClick();
+            }
+        });
 
 
-        }
+        Log.e(ACTIVITY_NAME, "In function:" + "onCreate()");
 
-        public void onDisplay(View v){
 
-        text = (CheckBox) findViewById(R.id.checkbox);
-        String message = getResources().getString(R.string.check);
-        Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+    }
+
+  //  public void openProfileActivity(){
+  //      Intent intent = new Intent(this, ProfileActivity.class);
+ //   }
+
+
+    public void savePreferences(){
+
+        SharedPreferences sp = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+
+        EditText emailText = findViewById(R.id.textView);
+        email = emailText.getText().toString();
+        editor.putString(EMAIL, email);
+
+        editor.commit();
+    }
+
+
+    public void onLoginClick(){
+
+        Intent nextPage = new Intent(MainActivity.this, ProfileActivity.class);
+
+        EditText emailInfo = findViewById(R.id.textView);
+        email = emailInfo.getText().toString();
+        nextPage.putExtra("EMAIL", email);
+
+        startActivity(nextPage);
+    }
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e(ACTIVITY_NAME, "In function:" + "onStart()");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e(ACTIVITY_NAME, "In function:" + "onStop()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(ACTIVITY_NAME, "In function:" + "onDestroy()");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(ACTIVITY_NAME, "In function:" + "onResume()");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.e(ACTIVITY_NAME, "In function:" + "onActivityResult()");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        savePreferences();
+
+
+        Log.e(ACTIVITY_NAME, "In function:" + "onPause()");
+
+
+   //     editor.putString(EMAIL, findViewById(R.id.textView).toString());
+
+
 
     }
 
 
-    public void onCheckChanged(View view) {
-
-        final Switch s = (Switch) findViewById(R.id.switch1);
-
-        if (s.isChecked()) {
-            final Snackbar mySnackbar = Snackbar.make(findViewById(R.id.switch1), getResources().getString(R.string.swch) + " " + getResources().getString(R.string.on), Snackbar.LENGTH_LONG);
-            mySnackbar.setAction(R.string.undo, new MyUndoListener());
-            mySnackbar.setAction("undo", v -> s.setChecked(false));
-            mySnackbar.show();
-
-        } else {
-            Snackbar mySnackbar = Snackbar.make(findViewById(R.id.switch1), getResources().getString(R.string.swch) + " " + getResources().getString(R.string.off), Snackbar.LENGTH_SHORT);
-         //   mySnackbar.setAction(R.string.undo, new MyUndoListener());
-            mySnackbar.show();
-        }
 
 
-    }
 }
